@@ -1,11 +1,7 @@
 package com.manager.tab.tabmanager.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.Builder;
+import lombok.*;
 
 @Entity
 @Table(name="users",
@@ -14,8 +10,7 @@ import lombok.Builder;
             @UniqueConstraint(columnNames = "email")
     })
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -30,6 +25,8 @@ public class User {
     @Column(name="email", length = 50, nullable = false)
     private String email;
 
-    @Column(name="password", length = 20, nullable = false)
+    @Column(name="password", length = 60, nullable = false)
     private String password;
+
+    private String roles;
 }
